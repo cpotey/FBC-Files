@@ -28,6 +28,7 @@ const IndexPage = () => {
               placeholder="none"
               alt="Research & Records icon"
               loading="eager"
+              className="tile-img"
             />
           </div>
         </Link>
@@ -39,6 +40,7 @@ const IndexPage = () => {
               placeholder="none"
               alt="Case Files icon"
               loading="eager"
+              className="tile-img"
             />
           </div>
         </Link>
@@ -50,6 +52,7 @@ const IndexPage = () => {
               placeholder="none"
               alt="Correspondence icon"
               loading="eager"
+              className="tile-img"
             />
           </div>
         </Link>
