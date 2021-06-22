@@ -5,21 +5,21 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Breadcrumbs from "../../components/Breadcrumbs"
 import Footer from "../../components/Footer"
+import SeoHelmet from "../../components/SeoHelmet"
 
 class CorrespondenceTemplate extends React.Component {
   render() {
     const pageTitle = "Correspondence"
+    const title = `${pageTitle} | FBC Files`
+    const description =
+      "Letters sent recieved by the Bureau, on an official and non-official basis."
 
     return (
       <main id="document">
         <Helmet>
           <title>{pageTitle} | FBC Files</title>
-          <meta
-            name="description"
-            content="Letters sent recieved by the Bureau, on an official and non-official
-            basis."
-          />
         </Helmet>
+        <SeoHelmet metaTitle={title} metaDesc={description} />
         <Breadcrumbs currentPage={pageTitle} />
         <StaticImage
           className="category-image"

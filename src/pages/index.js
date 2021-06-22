@@ -8,15 +8,10 @@ const IndexPage = () => {
     <main id="page">
       <Helmet>
         <title>Home | FBC Files</title>
-        <meta
-          name="description"
-          content="FBC Files collates the world-building collectibles and lore found
-          within the video-game, Control."
-        />
       </Helmet>
 
       <div className="content">
-        <h1 className="home-welcome">Welcome, Agent.</h1>
+        <h1 className="home-welcome">Welcome, FBC Agent.</h1>
         <p>
           FBC Files collates the incredible world-building collectibles found
           within the video-game, Control. Click through to discover more, and

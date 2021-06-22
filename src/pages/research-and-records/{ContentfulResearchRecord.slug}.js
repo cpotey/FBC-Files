@@ -5,10 +5,14 @@ import { Helmet } from "react-helmet"
 import Breadcrumbs from "../../components/Breadcrumbs"
 import DocumentFields from "../../components/Document/DocumentFields"
 import Footer from "../../components/Footer"
+import SeoHelmet from "../../components/SeoHelmet"
 
 class ResearchAndRecordsTemplate extends React.Component {
   render() {
     const researchRecordData = this.props.data.post
+
+    const title = `${researchRecordData.documentTitle} | Research & Records | FBC Files`
+    const description = `${researchRecordData.documentTitle} is a Research & Records file on FBC Files.`
 
     return (
       <main id="document">
@@ -16,11 +20,8 @@ class ResearchAndRecordsTemplate extends React.Component {
           <title>
             {researchRecordData.documentTitle} | Research & Records | FBC Files
           </title>
-          <meta
-            name="description"
-            content={`${researchRecordData.documentTitle} is a Research & Records file on FBC Files.`}
-          />
         </Helmet>
+        <SeoHelmet metaTitle={title} metaDesc={description} />
         <Breadcrumbs currentPage="Research & Records" />
         <DocumentFields data={researchRecordData} />
         <Footer />

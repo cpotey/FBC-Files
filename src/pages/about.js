@@ -1,17 +1,17 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
+import SeoHelmet from "../components/SeoHelmet"
 
 const About = () => {
   return (
     <main id="page">
       <Helmet>
         <title>About | FBC Files</title>
-        <meta
-          name="description"
-          content="This is an unofficial fan-site built to collate the in-game
-            collectibles and lore found within Remedy's 2019 video-game, Control. Find out more on how it was built on my portfolio."
-        />
       </Helmet>
+      <SeoHelmet
+        metaTitle="About"
+        metaDesc="This is an unofficial fan-site built to collate the in-game collectibles and lore found within Remedy's 2019 video-game, Control. Find out more on how it was built on my portfolio."
+      />
 
       <div className="content">
         <h1 className="home-welcome">About FBC Files</h1>
