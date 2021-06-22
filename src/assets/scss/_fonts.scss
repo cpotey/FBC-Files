@@ -1,0 +1,63 @@
+// Fonts
+
+// H1 font - used in logo/area title screens ingame
+@font-face {
+  font-family: "ITC Avant Garde Gothic LT Bold";
+  src: url("../fonts/itc-avant-garde-gothic/itc-avant-garde-gothic-lt-bold.woff2")
+      format("woff2"),
+    url("../fonts/itc-avant-garde-gothic/itc-avant-garde-gothic-lt-bold.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Used for headings in sidebar - Altered items etc
+// @font-face {
+//   font-family: "Interstate Regular Comp";
+//   font-style: normal;
+//   font-weight: normal;
+//   src: local("Interstate Regular Comp"),
+//     url("../fonts/interstate/interstate-regular-comp.woff") format("woff");
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: "Interstate Bold Cond";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Interstate Bold Cond"),
+    url("../fonts/interstate/interstate-bold-cond.woff") format("woff");
+  font-display: swap;
+}
+
+// Body font everywhere
+@font-face {
+  font-family: "Akzidenz-Grotesk";
+  src: url("../fonts/akzidenz-grotesk/akzidenz-grotesk-roman.woff2")
+      format("woff2"),
+    url("../fonts/akzidenz-grotesk/akzidenz-grotesk-roman.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: "Akzidenz-Grotesk";
+//   src: url("../fonts/akzidenz-grotesk/akzidenz-grotesk-bold.woff2")
+//       format("woff2"),
+//     url("../fonts/akzidenz-grotesk/akzidenz-grotesk-bold.woff") format("woff");
+//   font-weight: bold;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: "Akzidenz-Grotesk";
+  src: url("../fonts/akzidenz-grotesk/akzidenz-grotesk-black.woff2")
+      format("woff2"),
+    url("../fonts/akzidenz-grotesk/akzidenz-grotesk-black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

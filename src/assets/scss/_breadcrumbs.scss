@@ -1,0 +1,32 @@
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 1rem;
+  list-style: none;
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+.breadcrumb-item {
+  a {
+    color: #8b8b8b;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: white;
+    }
+  }
+  // The separator between breadcrumbs (by default, a forward-slash: "/")
+  + .breadcrumb-item {
+    padding-left: 0.3rem;
+
+    &::before {
+      float: left; // Suppress inline spacings and underlining of the separator
+      padding-right: 0.3rem;
+      color: #2f2f2f;
+      content: "/";
+      font-weight: 400;
+    }
+  }
+}

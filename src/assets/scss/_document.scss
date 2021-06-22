@@ -1,0 +1,99 @@
+#document {
+  padding: 0 1.5rem;
+  overflow: visible;
+  max-height: 100%;
+  position: static;
+  flex: 1 1 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (min-width: $device-lg) {
+    padding-top: 1.75rem;
+  }
+}
+
+#document-wrapper {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: $device-md) {
+    flex-direction: row;
+  }
+
+  .document-image {
+    margin-bottom: 1.5rem;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    @media (min-width: $device-md) {
+      width: 45%;
+      padding-right: 1.5rem;
+
+      h1 {
+        display: none;
+      }
+    }
+    @media (min-width: $device-lg) {
+      width: 45%;
+      padding-right: 2.5rem;
+      margin-bottom: 0;
+    }
+  }
+  .document-body {
+    padding-bottom: 4.5rem;
+    @media (min-width: $device-md) {
+      padding-bottom: 3rem;
+    }
+
+    h1 {
+      display: none;
+    }
+    h2 {
+      color: $red;
+      text-transform: uppercase;
+      font-family: "Interstate Bold Cond", "interstate";
+      letter-spacing: 1px;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin: 0 0 0.75rem;
+    }
+    p {
+      // color: #8f8f8f;
+      color: #d4d4d4;
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+    .documentSummary {
+      margin-top: 2rem;
+    }
+    @media (min-width: $device-md) {
+      width: 55%;
+
+      h1 {
+        display: block;
+      }
+    }
+    @media (min-width: $device-lg) {
+      width: 55%;
+    }
+  }
+}
+
+.dlc {
+  font-size: 0.75rem;
+  background-color: #fff;
+  padding: 0.3rem;
+  border-radius: 4px;
+  color: #000;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -5px;
+  font-family: "ITC Avant Garde Gothic LT Bold";
+  text-transform: uppercase;
+  // @media (min-width: $device-md) {
+  margin-bottom: 0.5rem;
+  // margin-top: 0;
+  // }
+}

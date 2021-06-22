@@ -1,0 +1,23 @@
+footer {
+  width: 100%;
+  font-size: 0.75rem;
+  margin-top: auto;
+  color: #8f8f8f;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: hsla(0, 0%, 0%, 0.8);
+
+  a {
+    color: inherit;
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+  }
+}
+#document footer {
+  padding-left: 0;
+  padding-right: 0;
+}

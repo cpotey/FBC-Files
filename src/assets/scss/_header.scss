@@ -1,0 +1,79 @@
+header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: hsla(0, 0%, 0%, 0.8);
+  // @media (min-width: $device-lg) {
+  // -webkit-backdrop-filter: saturate(180%) blur(5px);
+  // backdrop-filter: saturate(180%) blur(5px);
+  // }
+
+  .home {
+    font-family: "ITC Avant Garde Gothic LT Bold";
+    font-size: 1rem;
+    align-items: center;
+    display: flex;
+
+    @media (min-width: $device-md) {
+      font-size: 1.8rem;
+    }
+    svg {
+      // max-height: 15px;
+      // margin-right: 5px;
+      max-height: 37px;
+      width: auto;
+      margin-right: -12px;
+
+      path {
+        fill: $red;
+      }
+    }
+  }
+
+  #menu {
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    flex-direction: row;
+    font-weight: 900;
+    font-size: 0.9rem;
+    display: none;
+
+    @media (min-width: $device-lg) {
+      display: flex;
+      flex: 1 1 auto;
+      justify-content: flex-end;
+    }
+
+    a {
+      border-left: 1px solid #414141;
+      display: block;
+      padding: 0.7rem 0.9rem;
+      color: #9e9e9e;
+
+      &:first-child {
+        border-left: 1px solid #414141;
+      }
+      &:last-child {
+        border-right: 1px solid #414141;
+      }
+      &.active,
+      &:hover,
+      &:focus {
+        background-color: white;
+        color: #000;
+        border-color: white;
+      }
+    }
+  }
+  .burger-button {
+    @media (min-width: $device-lg) {
+      display: none;
+    }
+  }
+}
