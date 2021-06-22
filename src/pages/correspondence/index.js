@@ -31,8 +31,8 @@ class CorrespondenceTemplate extends React.Component {
         <h1 className="category-title">{pageTitle}</h1>
         <div className="content">
           <p>
-            Letters sent recieved by the Bureau, on an official and non-official
-            basis.
+            Letters sent and recieved by the Bureau, on an official and
+            non-official basis.
           </p>
         </div>
         <Link className="btn" to="agent-death-notification">
