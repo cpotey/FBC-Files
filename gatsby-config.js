@@ -15,6 +15,9 @@ if (!spaceId || !accessToken) {
 }
 
 module.exports = {
+  flags: {
+    DEV_SSR: false,
+  },
   plugins: [
     {
       resolve: "gatsby-source-contentful",

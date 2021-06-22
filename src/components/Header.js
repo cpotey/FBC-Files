@@ -8,6 +8,7 @@ import CloseIcon from "../assets/images/icons/close.svg"
 function Header() {
   return (
     <header id="header">
+      <div className="header-gradient"></div>
       <Link className="home" to="/">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -34,11 +34,15 @@ const Layout = ({ children }) => {
         <meta property="og:site_name" content="FBC Files" />
         <meta property="og:type" content="website" />
         <meta
+          name="description"
+          content="FBC Files collates the world-building collectibles and lore found within the video-game, Control."
+        />
+        <meta
           property="og:image"
           content="https://fbcfiles.netlify.app/opengraph.png"
-        ></meta>
-        <meta name="twitter:card" content="summary_large_image"></meta>
-        <meta name="twitter:creator" content="@cpotey"></meta>
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@cpotey" />
 
         <meta property="og:title" content="FBC Files - Control Collectibles" />
         <meta
@@ -46,19 +50,16 @@ const Layout = ({ children }) => {
           content="FBC Files collates the world-building collectibles and lore found
           within the video-game, Control."
         />
-        <meta
-          name="twitter:title"
-          content="FBC Files - Control Collectibles"
-        ></meta>
+        <meta name="twitter:title" content="FBC Files - Control Collectibles" />
         <meta
           name="twitter:description"
           content="FBC Files collates the world-building collectibles and lore found
           within the video-game, Control."
-        ></meta>
+        />
         <meta
           name="twitter:image"
           content="https://fbcfiles.netlify.app/opengraph.png"
-        ></meta>
+        />
       </Helmet>
       <Header />
       {children}

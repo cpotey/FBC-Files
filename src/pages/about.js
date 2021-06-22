@@ -43,7 +43,7 @@ const About = () => {
       </div>
       <a
         className="btn"
-        href="https://connorpote.co.uk"
+        href="https://connorpote.co.uk/fbc-files"
         target="_blank"
         rel="noopener noreferrer"
       >
