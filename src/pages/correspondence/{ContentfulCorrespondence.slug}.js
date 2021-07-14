@@ -40,7 +40,7 @@ export const pageQuery = graphql`
         raw
       }
       image {
-        gatsbyImageData
+        gatsbyImageData(quality: 30)
       }
       to
       from
