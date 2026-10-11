@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 
 import type { DocumentCategory } from "../lib/contentful"
 
@@ -56,6 +56,29 @@ export default function Sidebar({
   const closeMobileSidebar = () => {
     if (mobileSidebarRef.current) mobileSidebarRef.current.open = false
   }
+
+  useEffect(() => {
+    const closeOnOutsidePointer = (event: PointerEvent) => {
+      const target = event.target
+      if (
+        target instanceof Node &&
+        mobileSidebarRef.current?.open &&
+        !mobileSidebarRef.current.contains(target)
+      ) {
+        closeMobileSidebar()
+      }
+    }
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMobileSidebar()
+    }
+
+    document.addEventListener("pointerdown", closeOnOutsidePointer)
+    document.addEventListener("keydown", closeOnEscape)
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutsidePointer)
+      document.removeEventListener("keydown", closeOnEscape)
+    }
+  }, [])
 
   const groups = (
     <ul className="categories">

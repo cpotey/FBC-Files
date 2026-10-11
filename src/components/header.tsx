@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const links = [
   { href: "/research-and-records", title: "Research & Records" },
@@ -13,8 +13,35 @@ const links = [
 export default function Header() {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const mobileNavigationRef = useRef<HTMLElement>(null)
   const isActive = (href: string) =>
     pathname === href || pathname?.startsWith(`${href}/`) === true
+
+  useEffect(() => {
+    if (!menuOpen) return
+
+    const closeOnOutsidePointer = (event: PointerEvent) => {
+      const target = event.target
+      if (
+        target instanceof Node &&
+        !menuButtonRef.current?.contains(target) &&
+        !mobileNavigationRef.current?.contains(target)
+      ) {
+        setMenuOpen(false)
+      }
+    }
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false)
+    }
+
+    document.addEventListener("pointerdown", closeOnOutsidePointer)
+    document.addEventListener("keydown", closeOnEscape)
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutsidePointer)
+      document.removeEventListener("keydown", closeOnEscape)
+    }
+  }, [menuOpen])
 
   return (
     <header id="header">
@@ -48,6 +75,7 @@ export default function Header() {
         ))}
       </nav>
       <button
+        ref={menuButtonRef}
         type="button"
         className={`mobile-menu-button${menuOpen ? " is-open" : ""}`}
         aria-label={menuOpen ? "Close navigation" : "Open navigation"}
@@ -61,6 +89,7 @@ export default function Header() {
       </button>
       {menuOpen && (
         <nav
+          ref={mobileNavigationRef}
           id="mobile-navigation"
           className="mobile-nav-panel"
           aria-label="Mobile navigation"

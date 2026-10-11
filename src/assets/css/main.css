@@ -303,8 +303,13 @@ button:hover, button:focus,
   bottom: 0;
   left: 0;
   z-index: 10;
-  width: min(24rem, 100vw - 3rem);
-  margin: 0 1.5rem 1rem;
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+  margin: 0 1rem 1rem;
+}
+
+#mobile-sidebar-wrapper[open] {
+  width: min(24rem, calc(100vw - 2rem));
 }
 
 @media (min-width: 991px) {
@@ -590,22 +595,17 @@ footer a:hover, footer a:focus {
 
 @media (max-width: 990px) {
   #document {
-    padding-bottom: 10rem;
+    padding-bottom: calc(7rem + env(safe-area-inset-bottom));
   }
 
   #document footer {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 9;
-    width: 100%;
-    padding: 0.75rem 1.5rem;
-    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    position: static;
+    padding: 0.75rem 0;
   }
 
   #mobile-sidebar-wrapper {
-    bottom: calc(3.5rem + env(safe-area-inset-bottom));
+    bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    margin-bottom: 0;
   }
 }
 #document-wrapper {
