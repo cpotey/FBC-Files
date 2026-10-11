@@ -21,7 +21,7 @@ export default function Header() {
   useEffect(() => {
     if (!menuOpen) return
 
-    const closeOnOutsidePointer = (event: PointerEvent) => {
+    const closeOnOutside = (event: Event) => {
       const target = event.target
       if (
         target instanceof Node &&
@@ -35,10 +35,12 @@ export default function Header() {
       if (event.key === "Escape") setMenuOpen(false)
     }
 
-    document.addEventListener("pointerdown", closeOnOutsidePointer)
+    document.addEventListener("pointerdown", closeOnOutside)
+    document.addEventListener("click", closeOnOutside)
     document.addEventListener("keydown", closeOnEscape)
     return () => {
-      document.removeEventListener("pointerdown", closeOnOutsidePointer)
+      document.removeEventListener("pointerdown", closeOnOutside)
+      document.removeEventListener("click", closeOnOutside)
       document.removeEventListener("keydown", closeOnEscape)
     }
   }, [menuOpen])

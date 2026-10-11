@@ -85,7 +85,8 @@ h1.category-title, h1.home-welcome {
   flex: 1;
   min-height: 0;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #page {
@@ -95,9 +96,24 @@ h1.category-title, h1.home-welcome {
   padding: 0 1.5rem;
   padding-top: 1.75rem;
 }
+
+.page-layout > #page {
+  flex: 0 0 auto;
+  min-height: auto;
+  overflow: visible;
+}
+
+.page-layout > footer {
+  margin-top: 0;
+}
+
 @media (min-width: 991px) {
   #page {
     padding-top: 2rem;
+  }
+
+  .page-layout > footer {
+    margin-top: auto;
   }
 }
 
@@ -308,7 +324,7 @@ button:hover, button:focus,
   margin: 0 1rem 1rem;
 }
 
-#mobile-sidebar-wrapper[open] {
+#mobile-sidebar-wrapper.is-open {
   width: min(24rem, calc(100vw - 2rem));
 }
 
@@ -317,7 +333,7 @@ button:hover, button:focus,
     display: none;
   }
 }
-#mobile-sidebar-wrapper summary {
+#mobile-sidebar-toggle {
   display: flex;
   width: max-content;
   min-height: 3rem;
@@ -331,17 +347,13 @@ button:hover, button:focus,
   cursor: pointer;
 }
 
-#mobile-sidebar-wrapper summary::-webkit-details-marker {
-  display: none;
-}
-
-#mobile-sidebar-wrapper summary::after {
+#mobile-sidebar-toggle::after {
   content: "+";
   font-size: 1.25rem;
   line-height: 1;
 }
 
-#mobile-sidebar-wrapper[open] summary::after {
+#mobile-sidebar-wrapper.is-open #mobile-sidebar-toggle::after {
   content: "-";
 }
 

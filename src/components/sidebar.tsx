@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import type { DocumentCategory } from "../lib/contentful"
 
@@ -52,33 +52,35 @@ export default function Sidebar({
   contentType: string
   title: string
 }) {
-  const mobileSidebarRef = useRef<HTMLDetailsElement>(null)
-  const closeMobileSidebar = () => {
-    if (mobileSidebarRef.current) mobileSidebarRef.current.open = false
-  }
+  const mobileSidebarRef = useRef<HTMLDivElement>(null)
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false)
+  const closeMobileSidebar = () => setMobileSidebarOpen(false)
 
   useEffect(() => {
-    const closeOnOutsidePointer = (event: PointerEvent) => {
+    if (!mobileSidebarOpen) return
+
+    const closeOnOutside = (event: Event) => {
       const target = event.target
       if (
         target instanceof Node &&
-        mobileSidebarRef.current?.open &&
-        !mobileSidebarRef.current.contains(target)
+        !mobileSidebarRef.current?.contains(target)
       ) {
-        closeMobileSidebar()
+        setMobileSidebarOpen(false)
       }
     }
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closeMobileSidebar()
+      if (event.key === "Escape") setMobileSidebarOpen(false)
     }
 
-    document.addEventListener("pointerdown", closeOnOutsidePointer)
+    document.addEventListener("pointerdown", closeOnOutside)
+    document.addEventListener("click", closeOnOutside)
     document.addEventListener("keydown", closeOnEscape)
     return () => {
-      document.removeEventListener("pointerdown", closeOnOutsidePointer)
+      document.removeEventListener("pointerdown", closeOnOutside)
+      document.removeEventListener("click", closeOnOutside)
       document.removeEventListener("keydown", closeOnEscape)
     }
-  }, [])
+  }, [mobileSidebarOpen])
 
   const groups = (
     <ul className="categories">
@@ -100,14 +102,31 @@ export default function Sidebar({
           </div>
         </div>
       </aside>
-      <details id="mobile-sidebar-wrapper" ref={mobileSidebarRef}>
-        <summary aria-label="Browse all files">
-          <span>Browse all files</span>
-        </summary>
-        <nav className="mobile-sidebar-panel" aria-label={`${title} files`}>
-          {groups}
-        </nav>
-      </details>
+      <div
+        id="mobile-sidebar-wrapper"
+        className={mobileSidebarOpen ? "is-open" : undefined}
+        ref={mobileSidebarRef}
+      >
+        <button
+          id="mobile-sidebar-toggle"
+          type="button"
+          aria-label={`Browse ${title}`}
+          aria-expanded={mobileSidebarOpen}
+          aria-controls="mobile-sidebar-navigation"
+          onClick={() => setMobileSidebarOpen(open => !open)}
+        >
+          <span>Browse {title}</span>
+        </button>
+        {mobileSidebarOpen && (
+          <nav
+            id="mobile-sidebar-navigation"
+            className="mobile-sidebar-panel"
+            aria-label={`${title} files`}
+          >
+            {groups}
+          </nav>
+        )}
+      </div>
     </>
   )
 }
