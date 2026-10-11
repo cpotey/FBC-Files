@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
+import Script from "next/script"
 
 import "../assets/css/main.css"
 import Header from "../components/header"
@@ -37,6 +38,14 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           <Header />
           <div className="site-main">{children}</div>
         </div>
+        {process.env.NODE_ENV === "production" && (
+          <Script
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            strategy="afterInteractive"
+            type="module"
+            data-cf-beacon='{"token": "3f7ee0cd68724016839c2314744a2983"}'
+          />
+        )}
       </body>
     </html>
   )

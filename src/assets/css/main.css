@@ -120,6 +120,37 @@ h1.category-title, h1.home-welcome {
   text-decoration: underline;
 }
 
+.privacy-content {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.privacy-content h1 {
+  margin-bottom: 1.5rem;
+}
+
+.privacy-content h2 {
+  color: #ed0006;
+  text-transform: uppercase;
+  font-family: "Interstate Bold Cond", "interstate", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 1.75rem 0 0.65rem;
+}
+
+.privacy-content p {
+  color: #d4d4d4;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.privacy-content p:last-child {
+  color: #8f8f8f;
+  font-size: 0.8rem;
+  margin-top: 1.25rem;
+}
+
 .category-image {
   max-width: 180px;
   height: auto;

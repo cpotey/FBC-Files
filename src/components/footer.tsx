@@ -12,7 +12,7 @@ export default function Footer() {
         >
           Connor Pote
         </a>{" "}
-        | <Link href="/about">About</Link>
+        | <Link href="/about">About</Link> | <Link href="/privacy">Privacy</Link>
       </span>
     </footer>
   )
