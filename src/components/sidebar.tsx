@@ -2,15 +2,18 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useRef } from "react"
 
 import type { DocumentCategory } from "../lib/contentful"
 
 function SidebarGroups({
   categories,
   contentType,
+  onNavigate,
 }: {
   categories: DocumentCategory[]
   contentType: string
+  onNavigate: () => void
 }) {
   const pathname = usePathname()
 
@@ -28,6 +31,7 @@ function SidebarGroups({
                 href={href}
                 className={`btn${active ? " active" : ""}`}
                 aria-current={active ? "page" : undefined}
+                onClick={onNavigate}
               >
                 {document.documentTitle}
               </Link>
@@ -48,9 +52,18 @@ export default function Sidebar({
   contentType: string
   title: string
 }) {
+  const mobileSidebarRef = useRef<HTMLDetailsElement>(null)
+  const closeMobileSidebar = () => {
+    if (mobileSidebarRef.current) mobileSidebarRef.current.open = false
+  }
+
   const groups = (
     <ul className="categories">
-      <SidebarGroups categories={categories} contentType={contentType} />
+      <SidebarGroups
+        categories={categories}
+        contentType={contentType}
+        onNavigate={closeMobileSidebar}
+      />
     </ul>
   )
 
@@ -64,10 +77,9 @@ export default function Sidebar({
           </div>
         </div>
       </aside>
-      <details id="mobile-sidebar-wrapper">
-        <summary aria-label={`Browse ${title}`}>
-          <span className="file-icon" aria-hidden="true" />
-          <span>Browse files</span>
+      <details id="mobile-sidebar-wrapper" ref={mobileSidebarRef}>
+        <summary aria-label="Browse all files">
+          <span>Browse all files</span>
         </summary>
         <nav className="mobile-sidebar-panel" aria-label={`${title} files`}>
           {groups}

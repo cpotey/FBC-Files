@@ -158,6 +158,12 @@ h1.category-title, h1.home-welcome {
   margin-top: 3rem;
 }
 
+@media (max-width: 767px) {
+  .category-image {
+    margin-top: 1.5rem;
+  }
+}
+
 button,
 .btn {
   background-color: #0b0b0b;
@@ -332,14 +338,6 @@ button:hover, button:focus,
 
 #mobile-sidebar-wrapper[open] summary::after {
   content: "-";
-}
-
-#mobile-sidebar-wrapper .file-icon {
-  display: block;
-  width: 1rem;
-  height: 1.2rem;
-  border: 1px solid currentColor;
-  border-top-width: 3px;
 }
 
 #mobile-sidebar-wrapper .mobile-sidebar-panel {
@@ -592,11 +590,22 @@ footer a:hover, footer a:focus {
 
 @media (max-width: 990px) {
   #document {
-    padding-bottom: 6rem;
+    padding-bottom: 10rem;
+  }
+
+  #document footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
   }
 
   #mobile-sidebar-wrapper {
-    bottom: 3.5rem;
+    bottom: calc(3.5rem + env(safe-area-inset-bottom));
   }
 }
 #document-wrapper {
