@@ -34,8 +34,10 @@
 }
 
 body {
-  height: 100%;
-  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
   font-family: "Akzidenz-Grotesk", sans-serif;
   background-color: black;
   -moz-osx-font-smoothing: grayscale;
@@ -67,9 +69,9 @@ h1.category-title, h1.home-welcome {
 #wrapper {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: visible;
   background-color: #000;
 }
 
@@ -77,36 +79,34 @@ h1.category-title, h1.home-welcome {
   display: flex;
   flex: 1;
   flex-direction: column;
-  min-height: 0;
-  overflow: hidden;
+  min-height: auto;
+  overflow: visible;
 }
 
 .page-layout {
   display: flex;
   flex: 1;
-  min-height: 0;
+  min-height: auto;
   flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding-bottom: env(safe-area-inset-bottom);
+  overflow: visible;
 }
 
 #page {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
+  flex: 0 0 auto;
+  min-height: auto;
+  overflow: visible;
   padding: 0 1.5rem;
   padding-top: 1.75rem;
 }
 
-.page-layout > #page {
-  flex: 0 0 auto;
-  min-height: auto;
-  overflow: visible;
-}
-
 .page-layout > footer {
   margin-top: 0;
+}
+
+@media (max-width: 990px) {
+  .page-layout > footer {
+    margin-top: 0;
+  }
 }
 
 @media (min-width: 991px) {
@@ -596,9 +596,10 @@ footer a:hover, footer a:focus {
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
-  max-height: 100%;
+  max-height: none;
   min-height: 0;
-  height: 100%;
+  height: auto;
+  align-self: stretch;
   position: static;
   flex: 1 1 auto;
   display: flex;
