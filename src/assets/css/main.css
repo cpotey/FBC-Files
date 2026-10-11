@@ -70,7 +70,6 @@ h1.category-title, h1.home-welcome {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-  padding-bottom: env(safe-area-inset-bottom);
   background-color: #000;
 }
 
@@ -89,6 +88,7 @@ h1.category-title, h1.home-welcome {
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: auto;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 #page {
