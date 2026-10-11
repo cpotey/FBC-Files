@@ -70,6 +70,8 @@ h1.category-title, h1.home-welcome {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
+  background-color: #000;
 }
 
 .site-main {
@@ -417,6 +419,12 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left center;
+}
+
+@media (max-width: 990px) {
+  header {
+    padding-top: calc(1rem + env(safe-area-inset-top));
+  }
 }
 
 header .header-gradient {

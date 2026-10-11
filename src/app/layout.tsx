@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import type { ReactNode } from "react"
 import Script from "next/script"
 
@@ -28,6 +28,12 @@ export const metadata: Metadata = {
     creator: "@cpotey",
     images: ["/opengraph.png"],
   },
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 }
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
